@@ -1,0 +1,67 @@
+{% load media %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-AU">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    {% block extra_meta %}{% endblock %}
+    
+    {% block first_js %}
+    {% endblock %}
+    
+    {% include_media 'main.css' %}
+    {% include_media 'main.js' %}
+
+    <title>{% block title %}Umit Project - The Courrier{% endblock %}</title>
+    
+    {% block extra_css %}{% endblock %}
+    {% block extra_js %}{% endblock %}
+    
+  </head>
+
+  <body {% block body_args %}{% endblock %}>
+    <div id="header">
+      <h1 class="headerTitle">
+        <a href="/" title="Browse to homepage">The <span>Courrier</span></a>
+      </h1>
+
+      <div class="subHeader">
+        <span class="doNotDisplay">Navigation: </span>
+        <a href="/">Home</a> |
+        <a href="/accounts/login/">Login</a> |
+        <a href="/about">About</a>
+      </div>
+    </div>
+
+    <div id="side-bar">
+        {% block main_right_side %}
+          <div class="rightSideBar">
+            {% block right_side %}{% endblock %}
+          </div>
+        {% endblock %}
+    </div>
+
+    <div id="main-copy">
+      {% block content %}{% endblock %}
+    </div>
+    
+    <!-- ##### Footer ##### -->
+
+    <div id="footer">
+      <div class="doNotPrint">
+        <a href="./index.html">Tell a Friend</a> |
+        <a href="./index.html">Privacy Policy</a> |
+        <a href="./index.html">Site Map</a> |
+        <a href="./index.html">Feedback</a> |
+        <a href="./index.html">Help</a>
+      </div>
+
+      <div>
+        Copyright &copy; 2003, Your Company |
+        Modified on 2003-May-03 by
+          <a href="http://www.oswd.org/email.phtml?user=haran" title="Email the author">haran</a>
+      </div>
+    </div>
+  </body>
+</html>
